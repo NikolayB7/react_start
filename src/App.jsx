@@ -1,17 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import Video from './Component/Video';
+import Post from './Component/Post.jsx';
+import PostsList from './posts.json'
 import './App.css'
 
 function App() {
-  
-  const res = "Work App"
-
   return (
     <>
-      
        <div className="video-container">
-         <Video/>
+           {
+               PostsList.map(post => (
+                   <Post
+                       key={post.id}
+                       url={post.url}
+                       title={post.title}
+                       thumb={post.thumbnail}
+                   />
+               ))
+           }
        </div>
     </>
   )
